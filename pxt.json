@@ -8,11 +8,12 @@
     "files": [
         "README.md",
         "main.blocks",
-        "main.ts"
+        "main.ts",
+        "tutorial-makecode.md"
     ],
     "testFiles": [
         "test.ts"
     ],
     "public": true,
-    "preferredEditor": "blocksprj"
+    "preferredEditor": "tsprj"
 }
