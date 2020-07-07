@@ -1,5 +1,7 @@
 # Collect the Banana Game Tutorial
 
+//TEST
+
 ## It's time to code! @fullscreen
 Click on the link to get an idea of the type of game you'll be creating:
 https://makecode.com/_YswU29TW31Lg
