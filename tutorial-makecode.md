@@ -1,17 +1,225 @@
+### @activities true
 # Collect the Banana Game Tutorial
 
-## It's time to code! @fullscreen
-Click on the link to get an idea of the type of game you'll be creating:
-https://makecode.com/_YswU29TW31Lg
-![This is a image](https://raw.githubusercontent.com/schleif11/prototype-v3/master/images/1-fullgame.gif)
+## Example Game @fullscreen
+In this tutorial you'll code a simple game where the player can collect an item. Here's an example of a completed game. 
+![Collect the Banna's](https://raw.githubusercontent.com/schleif11/prototype-v3/master/images/1-fullgame.gif)
 
+**Tutorial Objetives**
+* Create a controllable player
+* Create a collectable item
+* Create a scoring system
 
+By the end of this tutorial you'll have the basic foundation of game in which you can add new features and mechanics to make your game even more fun!
 
-## Step 1
+## Create a controllable player 
+### Step 1
 
-Go to the Scene category and select the ``||scene.set Background color to||`` block. Drag this block into the ``||loops.on start||`` block.
+Go to the **Scene** category and select the ``||scene.set Background color to||`` block. Drag this block into the ``||loops.on start||`` block.
 
 ````blocks
 scene.setBackgroundColor(9)
 ````
 
+### Step 2
+Select the **grey circle** in your ``||scene.set Background color to||`` block and choose a color for your background.
+
+
+### Step 3
+
+Go to the **Sprites** category and select the ``||variables:set mySprite to||`` block and drag this into the ``||loops.on start||`` block.
+
+````blocks
+scene.setBackgroundColor(9)
+let mySprite = sprites.create(img`
+`, SpriteKind.Player)
+````
+
+### Step 4
+
+To draw your ``||sprites.Player||`` character click the **grey square** in the ``||sprites.sprite of kind player||``. You can select the **Gallery** button to choose a sprite or design your own in the editor. Click **done** when you are finished.
+![Add the Character](https://raw.githubusercontent.com/schleif11/prototype-v3/master/images/4-character.gif)
+
+### Step 5
+
+Go to the **Controller** category and add a ``||controller.move (mySprite) with buttons|| `` block ``||loops.on start||`` block.
+
+ 
+````blocks
+scene.setBackgroundColor(9)
+let mySprite = sprites.create(img`
+    . . . . f f f f f . . . . . . .
+    . . . f e e e e e f . . . . . .
+    . . f d d d d e e e f . . . . .
+    . c d f d d f d e e f f . . . .
+    . c d f d d f d e e d d f . . .
+    c d e e d d d d e e b d c . . .
+    c d d d d c d d e e b d c . . .
+    c c c c c d d e e e f c . . . .
+    . f d d d d e e e f f . . . . .
+    . . f f f f f e e e e f . . . .
+    . . . . f f e e e e e e f . f f
+    . . . f e e f e e f e e f . e f
+    . . f e e f e e f e e e f . e f
+    . f b d f d b f b b f e f f e f
+    . f d d f d d f d d b e f f f f
+    . . f f f f f f f f f f f f f .
+`, SpriteKind.Player)
+controller.moveSprite(mySprite)
+````
+
+## Create a collectable item
+### Step 6
+
+Now you should be able to control the ``||sprites.Player||`` character by using the **arrow** keys or **A,W,S,D** keys on your keyboard. Give it a shot!
+
+
+### Step 7
+
+Go to the **Sprites** category and drag another ``||variables:set mySprite2 to||`` block into the ``||loops.on Start||`` block. This will be the item that the Player has to collect.
+
+````blocks
+scene.setBackgroundColor(9)
+let mySprite = sprites.create(img`
+    . . . . f f f f f . . . . . . .
+    . . . f e e e e e f . . . . . .
+    . . f d d d d e e e f . . . . .
+    . c d f d d f d e e f f . . . .
+    . c d f d d f d e e d d f . . .
+    c d e e d d d d e e b d c . . .
+    c d d d d c d d e e b d c . . .
+    c c c c c d d e e e f c . . . .
+    . f d d d d e e e f f . . . . .
+    . . f f f f f e e e e f . . . .
+    . . . . f f e e e e e e f . f f
+    . . . f e e f e e f e e f . e f
+    . . f e e f e e f e e e f . e f
+    . f b d f d b f b b f e f f e f
+    . f d d f d d f d d b e f f f f
+    . . f f f f f f f f f f f f f .
+`, SpriteKind.Player)
+controller.moveSprite(mySprite)
+MySprite2 = sprites.create(img`
+`, SpriteKind.Player)
+````
+
+### Step 8
+
+In the ``||variables:set mySprite2 to||`` block, click on ``||variables:mySprite2||`` to open the menu, and select **Rename variable**. This variable can be named anything, but I'll rename mine to **banana** since my Player is a monkey and monkeys love to eat bananans! Once you have renamed your variable click ok.
+
+### Step 9
+
+In ``||variables.set banana to||`` block, click on ``||sprites.Player||`` and select ``||sprites.Food||`` as the **sprite kind**.
+
+````blocks
+scene.setBackgroundColor(9)
+let mySprite = sprites.create(img`
+    . . . . f f f f f . . . . . . .
+    . . . f e e e e e f . . . . . .
+    . . f d d d d e e e f . . . . .
+    . c d f d d f d e e f f . . . .
+    . c d f d d f d e e d d f . . .
+    c d e e d d d d e e b d c . . .
+    c d d d d c d d e e b d c . . .
+    c c c c c d d e e e f c . . . .
+    . f d d d d e e e f f . . . . .
+    . . f f f f f e e e e f . . . .
+    . . . . f f e e e e e e f . f f
+    . . . f e e f e e f e e f . e f
+    . . f e e f e e f e e e f . e f
+    . f b d f d b f b b f e f f e f
+    . f d d f d d f d d b e f f f f
+    . . f f f f f f f f f f f f f .
+`, SpriteKind.Player)
+controller.moveSprite(mySprite)
+banana = sprites.create(img`
+`, SpriteKind.Food)
+````
+
+### Step 10
+
+Next, draw your ``||sprites.Food||`` sprite by clicking the **grey** square. Click **done** once you have completed drawing your food. 
+
+
+### Step 11
+
+Now we need to set up the code that will allow the player to collect the food. Go to the ``||sprites.Sprites||`` category and drag the ``||sprites.on sprite overlaps otherSprite||`` block anywhere in the workspace. 
+
+````blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
+})
+````
+
+### Step 12
+
+In the ``||sprites. on sprite overlaps otherSprite||`` block, click on the second ``||sprites.Player||`` kind and change it to ``||sprites.Food||``.
+
+````blocks
+sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
+})
+````
+
+## Create a scoring system
+### Step 13
+
+Next, we need to add a point to the game score every time the player overlaps with the food sprite. Open up the ``||info.Info||`` category and drag the ``||info.change score||`` block into the ``||sprites.on sprite overlaps otherSprite||`` block.
+
+````blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.changeScoreBy(1)
+})
+````
+
+### Step 14
+Now we need to ranomize where the food pops up on the screen. Go to the **Sprites** category and drag a ``||sprites.set mySprite position to||`` block to the ``||sprites. on sprite overlaps otherSprite||`` block. Change the ``||variables.mySprite||`` to your **food**.
+
+````blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    
+    info.changeScoreBy(1)
+    banana.setPosition()
+})
+let banana: Sprite = null
+
+````
+
+
+### Step 15
+
+Go to the Math category and drag a ``||math.pick random||`` block to the **X** coordinate in the ``||sprites.set food postion||`` block. Do the same thing for the **Y** coordinate.
+
+````blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    
+    info.changeScoreBy(1)
+    banana.setPosition(Math.randomRange(0, 0), Math.randomRange(0, 0))
+})
+let banana: Sprite = null
+````
+
+### Step 16
+
+The Arcade screen is **160 pixels** wide and **120 pixels** high. We want the food to pop up within this area. In the first ``||math.pick random||`` block change the maximum value from **10 to 160**. In the second ``||math.pick random||`` block change the maximum value to **10 to 120**. Test your game to make sure it's working properly.
+
+````blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    
+    info.changeScoreBy(1)
+    banana.setPosition(Math.randomRange(10, 160), Math.randomRange(10, 120))
+})
+let banana: Sprite = null
+````
+
+## Challenge
+### Step 17 @tutorialCompleted
+Congratulations you've coded your first game! Do you want to customize your game even more? Try adding a **countdown time** to make your game more challenging. You could even add a **sound effect** or an **enemy** that takes away points!
+
+````blocks
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
+    info.startCountdown(3)
+    info.changeScoreBy(1)
+    music.pewPew.play()
+    banana.setPosition(Math.randomRange(10, 160), Math.randomRange(10, 120))
+})
+let banana: Sprite = null
+````
