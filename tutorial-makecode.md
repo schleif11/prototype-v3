@@ -1,8 +1,8 @@
 ### @activities true
-# Collect the Banana Game Tutorial
+## Collect the Banana Game Tutorial
 
-## Example Game @fullscreen
-In this tutorial, you'll code a simple game in which the player can collect an item. Here's an example of a completed game. 
+### Example Game 
+In this tutorial, you'll code a simple game in which the player can collect an item. Click the blue lightbulb icon to see an example of a completed game. 
 ![Collect the Banna's](https://raw.githubusercontent.com/schleif11/prototype-v3/master/images/1-fullgame.gif)
 
 **Tutorial Objectives**
@@ -10,12 +10,12 @@ In this tutorial, you'll code a simple game in which the player can collect an i
 * Create a collectable item
 * Create a scoring system
 
-By the end of this tutorial, you'll have the basic foundation of game in which you can add new features and mechanics to make your game even more fun!
+By the end of this tutorial, you'll have the basic foundation of a game in which you can add new features and mechanics to make your game even more fun!
 
 ## Create a controllable player 
 ### Step 1
 
-Go to the "Scene" category and select the **set Background color to** block. Drag this block into the on start  block.
+Go to the "Scene" category and select the **set Background color to** block. Drag this block into the **on start** block.
 
 
 ````blocks
@@ -28,7 +28,7 @@ Select the "gray circle" in your **set Background color to** block and choose a 
 
 ### Step 3
 
-Go to the "Sprites" category and select the **set mySprite to** block and drag this into the on start block.
+Go to the "Sprites" category and select the **set mySprite to** block and drag this into the **on start** block below the background color block.
 
 ````blocks
 scene.setBackgroundColor(9)
@@ -38,12 +38,12 @@ let mySprite = sprites.create(img`
 
 ### Step 4
 
-To draw your Player character, click the "gray square" in the **sprite of kind player**. You can select the "Gallery" button to choose a sprite or design your own in the editor. Click "Done" when you are finished.
+To draw your "Player" character, click the gray square in the **sprite of kind player** block. You can select the "Gallery" button to choose a sprite, or design your own in the "Image editor." Click "Done" when you are finished.
 ![Add the Character](https://raw.githubusercontent.com/schleif11/prototype-v3/master/images/4-character.gif)
 
 ### Step 5
 
-Go to the "Controller" category and add a **move (mySprite) with buttons** block **on start** block.
+Go to the "Controller" category and add a **move (mySprite) with buttons** block to the **on start** block.
 
  
 ````blocks
@@ -72,7 +72,7 @@ controller.moveSprite(mySprite)
 ## Create a collectable item
 ### Step 6
 
-Now you should be able to control the Player character by using the "arrow" keys or "A,W,S,D" keys on your keyboard. Give it a shot!
+Now you should be able to control the Player character by using the arrow keys or the A,W,S,D keys on your keyboard. Give it a shot!
 
 
 ### Step 7
@@ -106,11 +106,11 @@ MySprite2 = sprites.create(img`
 
 ### Step 8
 
-In the **set mySprite2 to** block, click on "mySprite2" to open the menu, and select "Rename variable." This variable can be named anything, but I'll rename mine to "banana" since my Player is a monkey and monkeys love to eat bananas! Once you have renamed your variable, click "Ok." 
+In the **set mySprite2 to** block, click on "mySprite2" to open the menu, and select "Rename variable." This variable can be named anything, but I'll rename mine "banana" since my player is a monkey and monkeys love to eat bananas! Once you have renamed your variable, click "Ok." 
 
 ### Step 9
 
-In **set banana** to block, click on "Player" and select Food as the "sprite kind."
+In the **set banana** to block, click on "Player" and select "Food" as the "sprite kind."
 
 ````blocks
 scene.setBackgroundColor(9)
@@ -139,12 +139,12 @@ banana = sprites.create(img`
 
 ### Step 10
 
-Next, draw your Food sprite by clicking the gray square. Click "Done" once you have completed drawing your food.
+Next, draw your food sprite by clicking the gray square. Click "Done" once you have completed drawing your food.
 
 
 ### Step 11
 
-Now we need to set up the code that will allow the Player to collect the food. Go to the "Sprites" category and drag the **on sprite overlaps otherSprite** block anywhere in the workspace.
+Now you need to set up the code that allows the player to collect the food. Go to the "Sprites" category and drag the **on sprite overlaps otherSprite** block anywhere in the workspace.
 
 ````blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherSprite) {
@@ -156,14 +156,14 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Player, function (sprite, otherS
 In the **on sprite overlaps otherSprite** block, click on the second "Player" kind and change it to "Food."
 
 ````blocks
-sprites.onOverlap(SpriteKind.Food, SpriteKind.Player, function (sprite, otherSprite) {
+sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
 })
 ````
 
 ## Create a scoring system
 ### Step 13
 
-Next, we need to add a point to the game score every time the player overlaps with the food sprite. Open the "Info" category and drag the **change score** block into the **on sprite overlaps otherSprite** block.
+Next, you need to add a point to the game score every time the player overlaps with the food sprite. Open the "Info" category and drag the **change score** block into the **on sprite overlaps otherSprite** block.
 
 ````blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
@@ -172,7 +172,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 ````
 
 ### Step 14
-Now we need to randomize where the food pops up on the screen. Go to the "Sprites" category and drag a **set mySprite position to** block to the **on sprite overlaps otherSprite** block. Change the "mySprite" to your food.
+Now you need to randomize where the food pops up on the screen. Go to the "Sprites" category and drag a **set mySprite position to** block to the **on sprite overlaps otherSprite** block. Change the "mySprite" to your food.
 
 ````blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
@@ -200,7 +200,7 @@ let banana: Sprite = null
 
 ### Step 16
 
-The arcade screen is 160 pixels wide and 120 pixels tall. We want the food to pop up within this area. In the first **pick random** block, change the maximum value from "10" to "160". In the second **pick random** block, change the maximum value to "10" to "120". Test your game to make sure it works properly.
+The arcade screen is 160 pixels wide and 120 pixels tall. You want the food to pop up within this area. In the first **pick random** block, change the value range from "10" to "160". In the second **pick random** block, change the value range to "10" to "120". Test your game to make sure it works properly.
 
 ````blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
@@ -213,7 +213,7 @@ let banana: Sprite = null
 
 ## Challenge
 ### Step 17 @tutorialCompleted
-Congratulations, you've coded your first game! Do you want to customize your game even more? Try adding a sound effect or an enemy that takes away points! Once you're done, click the "Finish" button. Then go back to the course page to learn how to save your project.
+Congratulations, you've coded your first game! Do you want to customize your game even more? Try adding a countdown time to make your game more challenging. You could even add a sound effect or an enemy that takes away points! Once you're done, click the "Finish" button. Then go back to the course page to learn how to save your project.
 
 ````blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
