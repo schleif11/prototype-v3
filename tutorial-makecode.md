@@ -23,12 +23,12 @@ scene.setBackgroundColor(9)
 ````
 
 ### Step 2
-Select the "gray circle" in your **set Background color to** block and choose a color for your background.
+Select the gray circle in your **set Background color to** block and choose a color for your background.
 
 
 ### Step 3
 
-Go to the "Sprites" category and select the **set mySprite to** block and drag this into the **on start** block below the background color block.
+Go to the "Sprites" category and select the **set mySprite to** block and drag this into the **on start** block below the **background color** block.
 
 ````blocks
 scene.setBackgroundColor(9)
@@ -38,12 +38,12 @@ let mySprite = sprites.create(img`
 
 ### Step 4
 
-To draw your "Player" character, click the gray square in the **sprite of kind player** block. You can select the "Gallery" button to choose a sprite, or design your own in the "Image editor." Click "Done" when you are finished.
+To draw your "Player" character, click the gray square in the **sprite of kind player** block. You can select the "Gallery" button to choose a sprite, or design your own in the image editor. Click "Done" when you are finished.
 ![Add the Character](https://raw.githubusercontent.com/schleif11/prototype-v3/master/images/4-character.gif)
 
 ### Step 5
 
-Go to the "Controller" category and add a **move (mySprite) with buttons** block to the **on start** block.
+Go to the "Controller" category and add a **move mySprite with buttons** block to the **on start** block.
 
  
 ````blocks
@@ -72,12 +72,12 @@ controller.moveSprite(mySprite)
 ## Create a collectable item
 ### Step 6
 
-Now you should be able to control the Player character by using the arrow keys or the A,W,S,D keys on your keyboard. Give it a shot!
+Now you should be able to control the "Player" character by using the arrow keys or the A, W, S, and D keys on your keyboard. Give it a shot!
 
 
 ### Step 7
 
-Go to the "Sprites" category and drag another **set mySprite2** block into the **on start** block. This will be the item that the Player has to collect.
+Go to the "Sprites" category and drag another **set mySprite2** block into the **on start** block. This will be the item that the player has to collect.
 
 ````blocks
 scene.setBackgroundColor(9)
@@ -110,7 +110,7 @@ In the **set mySprite2 to** block, click on "mySprite2" to open the menu, and se
 
 ### Step 9
 
-In the **set banana** to block, click on "Player" and select "Food" as the "sprite kind."
+In the **set banana to** block, click on "Player" and select "Food" as the "sprite kind."
 
 ````blocks
 scene.setBackgroundColor(9)
@@ -172,7 +172,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSpr
 ````
 
 ### Step 14
-Now you need to randomize where the food pops up on the screen. Go to the "Sprites" category and drag a **set mySprite position to** block to the **on sprite overlaps otherSprite** block. Change the "mySprite" to your food.
+Now you need to randomize where the food pops up on the screen. Go to the "Sprites" category and drag a **set mySprite position to** block to the **on sprite overlaps otherSprite** block. Change "mySprite" to your food.
 
 ````blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
@@ -187,7 +187,7 @@ let banana: Sprite = null
 
 ### Step 15
 
-Go to the "Math" category and drag a **pick random** block to the "X" coordinate in the **set food position** block. Do the same thing for the "Y" coordinate.
+Go to the "Math" category and drag a **pick random** block to the *x* coordinate in the **set food position** block. Do the same thing for the *y* coordinate.
 
 ````blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
@@ -200,7 +200,7 @@ let banana: Sprite = null
 
 ### Step 16
 
-The arcade screen is 160 pixels wide and 120 pixels tall. You want the food to pop up within this area. In the first **pick random** block, change the value range from "10" to "160". In the second **pick random** block, change the value range to "10" to "120". Test your game to make sure it works properly.
+The arcade screen is 160 pixels wide and 120 pixels tall. You want the food to pop up within this area. In the first **pick random** block, change the *x* value range from 10 and 160. In the second **pick random** block, change the *y* values in the range of 10 and 120. Test your game to make sure it works properly.
 
 ````blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
