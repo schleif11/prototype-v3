@@ -200,7 +200,7 @@ let banana: Sprite = null
 
 ### Step 16
 
-The arcade screen is 160 pixels wide and 120 pixels tall. You want the food to pop up within this area. In the first **pick random** block, change the *x* value range from 10 and 160. In the second **pick random** block, change the *y* values in the range of 10 and 120. Test your game to make sure it works properly.
+The arcade screen is 160 pixels wide and 120 pixels tall. You want the food to pop up within this area. In the first **pick random** block, change the *x* values in the range to 10 and 160. In the second **pick random** block, change the *y* values in the range to 10 and 120. Test your game to make sure it works properly.
 
 ````blocks
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Food, function (sprite, otherSprite) {
